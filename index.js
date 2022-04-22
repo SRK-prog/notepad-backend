@@ -18,8 +18,8 @@ mongoose
 const PORT = process.env.PORT || 5000;
 
 const user = {
-  name: "admin",
-  password: "admin",
+  name: "siva",
+  password: "siva@262",
 };
 
 app.post("/", (req, res) => {
@@ -45,6 +45,15 @@ app.post("/lists", async (req, res) => {
 app.get("/lists", async (req, res) => {
   try {
     const lists = await Lists.find();
+    res.status(200).json(lists);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+app.delete("/lists/:id", async (req, res) => {
+  try {
+    const lists = await Lists.findByIdAndDelete(req.params.id);
     res.status(200).json(lists);
   } catch (err) {
     res.status(500).json(err);
