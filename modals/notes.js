@@ -1,17 +1,9 @@
 const mongoose = require("mongoose");
 const Notes = new mongoose.Schema(
   {
-    amount: {
-      type: Number,
-      required: true,
-    },
-    listId: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-    },
+    amount: String,
+    listId: String,
+    label: String,
   },
   { timestamps: true }
 );
